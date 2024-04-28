@@ -1,0 +1,35 @@
+<header style="background: url('https://cdn.pixabay.com/photo/2016/11/22/21/57/apparel-1850804_1280.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center; height: 400px;" class="py-5">
+    <div class="container px-4 px-lg-5 my-5 pt-5">
+        <div class="text-center text-white mt-3">
+            <h1 style="text-shadow: 1px 1px 1px #ffa876;" class="display-4 fw-bolder">Discover. Shop. Explore.</h1>
+            <p style="text-shadow: 1px 1px 1px #ffa876;" class="lead fw-normal mb-0 mt-4">Ultimate destination for seamless online shopping</p>
+        </div>
+    </div>
+</header>
+<!-- Section-->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5" *ngFor="let product of allProducts | filter : searchKey : 'title'">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <div class="p-4">
+                    <img class="card-img-top" height="150px" [src]=product.image alt="..." /></div>
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder mb-4">{{product.title}}</h5>
+                            <!-- Product price-->
+                            ${{product.price}}
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a routerLink="/view/{{product.id}}" class="btn btn-outline-dark mt-auto" href="#">View product</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

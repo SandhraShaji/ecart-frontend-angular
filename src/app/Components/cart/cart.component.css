@@ -1,0 +1,16 @@
+button{
+    background-color: #ffa876;
+    border: 1px #ffa876 solid;
+}
+.btn{
+    background-color: #ffa876;
+    border: 1px #ffa876 solid;
+}
+@media screen and (max-width: 600px){
+    #cartimg{
+        width: 300px;
+    }
+    .col-3{
+        width: 350px;
+    }
+}

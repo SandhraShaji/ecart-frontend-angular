@@ -1,0 +1,19 @@
+button{
+    background-color: #ffa876;
+    border: 1px #ffa876 solid;
+}
+.btn{
+    background-color: #ffa876;
+    border: 1px #ffa876 solid;
+}
+.col5{
+    background-color: #fff6f0;
+}
+@media screen and (max-width: 600px){
+    #logimg{
+        display: none;
+    }
+    .col-5{
+        width: 300px;
+    }
+}

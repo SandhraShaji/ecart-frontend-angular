@@ -1,0 +1,73 @@
+<div class="row p-5 w-100 text-center" *ngIf="products.length!=0">
+    <div class="col-7 m-5 p-5 shadow">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Item</th>
+                <th scope="col">Image</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of products; let i=index">
+                <th class="p-2" scope="row">{{i+1}}</th>
+                <td class="p-2">{{product.id}}</td>
+                <td class="p-2">{{product.title}}</td>
+                <td class="p-2"><img width="60px" [src]="product.image" alt=""></td>
+                <td class="d-flex p-2">
+                  <button (click)="cartDecrement(product.id)" class="btn me-3">-</button>
+                  <input [value]="product.quantity" readonly type="text" class="form-control w-25">
+                  <button (click)="cartIncrement(product.id)" class="btn ms-3">+</button></td>
+                <td class="p-2">{{product.price}}</td>
+                <td class="p-2"><i (click)="deleteCartProduct(product.id)" class="fa-solid fa-trash text-danger"></i></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="col-3 text-center py-5 px-4 m-5 shadow">
+        <div class="div">
+            <h4 class="my-3">Cart Summary</h4>
+            <h1 class="my-5">Total : $ {{totalPrice}}</h1>
+            <div class="text-center mt-3">
+                <button class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">CheckOut</button>
+            </div>
+        </div>
+    </div>
+  </div>
+    <div class="row p-5 w-100 text-center">
+    <div *ngIf="products.length<=0" class="text-center p-5">
+        <img id="cartimg" width="450px" src="https://cdn.dribbble.com/users/887568/screenshots/3172047/ufo.gif" alt="">
+        <h5>Your Cart is Empty</h5>
+        <div class="mt-5">
+            <button routerLink="/" class="btn">Buy Now</button>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">CheckOut Deatils</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h5 class="text-center my-3">Enter your details</h5>
+        <input type="text" class="form-control mb-3" placeholder="Name">
+        <input type="text" class="form-control mb-3" placeholder="Phone No">
+        <input type="text" class="form-control mb-3" placeholder="Address">
+        <h5 class="text-center mb-3 mt-4">Total price: $ {{totalPrice}}</h5>
+      </div>
+      <div *ngIf="makePaymentStatus">
+        <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+      </div>
+      <div class="modal-footer">
+        <button (click)="makePayment()" type="button" class="btn btn-primary">Make Payment</button>
+      </div>
+    </div>
+  </div>
+</div>

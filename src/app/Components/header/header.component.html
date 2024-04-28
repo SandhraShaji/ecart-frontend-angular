@@ -1,0 +1,23 @@
+<nav class="navbar navbar-light position-fixed w-100">
+    <div class="container-fluid">
+      <a routerLink="/" class="navbar-brand"><i class="fa-solid fa-shopping-cart me-2"></i>ShopTrek</a>
+      <form class="d-flex input-group w-auto">
+        <input
+          (keyup)="search($event)"
+          type="search"
+          class="form-control rounded"
+          placeholder="Search"
+          aria-label="Search"
+          aria-describedby="search-addon"
+        />
+        <span class="input-group-text border-0" id="search-addon">
+          <i class="fas fa-search me-3"></i>
+        </span>
+        <div class="d-flex justify-content-evenly mt-2">
+            <i routerLink="user/wishlist" class="fa-solid fa-heart mx-3"></i>
+            <i routerLink="user/cart" class="fa-solid fa-shopping-cart mx-3"></i>
+            <i routerLink="user/login" class="fa-solid fa-user mx-3"></i>
+        </div> 
+      </form>
+    </div>
+  </nav>

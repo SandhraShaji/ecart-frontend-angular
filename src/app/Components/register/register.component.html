@@ -1,0 +1,22 @@
+<div class="row w-100 pt-5">
+    <div id="regimg" class="col-lg-5 p-5 m-5">
+        <img width="100%" src="https://cdn.dribbble.com/users/2213143/screenshots/7971141/media/184cdea9758c029d9feef05432222403.gif" alt="">
+    </div>
+    <div class="col-lg-5 col5 text-center p-5 m-5">
+        <h4 class="mb-4 mt-5">Register Here</h4>
+        <form [formGroup]="registerForm" action="">
+        <input formControlName="username" type="text" name="" id="" placeholder="Username" class="form-control mb-1">
+        <div class="text-danger text-start" *ngIf="this.registerForm.get('username')?.errors&&this.registerForm.get('username')?.touched">*Invalid username</div>
+        <br>
+        <input formControlName="email" type="email" name="" id="" placeholder="Email" class="form-control mb-1">
+        <div class="text-danger text-start" *ngIf="this.registerForm.get('email')?.errors&&this.registerForm.get('email')?.touched">*Invalid email</div>
+        <br>
+        <input formControlName="password" type="password" name="" id="" placeholder="Password" class="form-control">
+        <div class="text-danger mb-4 text-start" *ngIf="this.registerForm.get('password')?.errors&&this.registerForm.get('password')?.touched">*Invalid password</div>
+        <div class="text-center mt-4">
+            <button (click)="register()" class="btn">Register</button>
+        </div>
+        </form>
+        <p class="mt-4">Already a member? <a routerLink="/user/login">Login</a></p>
+    </div>
+</div>
